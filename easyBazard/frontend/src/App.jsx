@@ -1,16 +1,20 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {ToastContainer} from 'react-toastify'
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Navigation from './pages/auth/Navigation'
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
 
   return (
     <>
-      <div className='text-center'>
-        hello world
-        
-      </div>
+      <ToastContainer />
+      <Navigation />
+      <main className='py-3'> 
+       <Outlet />
+      </main>
       
     </>
   )
