@@ -88,7 +88,7 @@ const Login = () => {
               {isLoading && <Loader />}
           </form>
           <div className="mt-4">
-           <p className="text-black">
+           <p className="text-white">
             Nouveau client ?{" "}
             <Link to="/register" className="text-pink-500">
               S'inscrire
