@@ -1,10 +1,15 @@
 import { PRODUCT_URL, UPLOAD_URL } from "../constant";
-import { apiSlice } from "../api/apiSlice";
+import { apiSlice } from "./apiSlice";
 
-export const ProductSlice = apiSlice.injectEndpoints({
+
+
+export const productSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: ({ keyword }) => ({ url: `${PRODUCT_URL}`, params: { keyword } }),
+      query: ({ keyword }) => ({
+        url: `${PRODUCT_URL}`,
+        params: { keyword },
+      }),
       keepUnusedDataFor: 5,
       providesTags: ["Product"],
     }),
@@ -37,8 +42,8 @@ export const ProductSlice = apiSlice.injectEndpoints({
     }),
 
     updateProduct: builder.mutation({
-      query: ({ productData, formData }) => ({
-        url: `${PRODUCT_URL}/${productData._id}`,
+      query: ({ productId, formData }) => ({
+        url: `${PRODUCT_URL}/${productId}`,
         method: "PUT",
         body: formData,
       }),
@@ -57,12 +62,12 @@ export const ProductSlice = apiSlice.injectEndpoints({
         url: `${PRODUCT_URL}/${productId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Product"],
+      providesTags: ["Product"],
     }),
 
     createReview: builder.mutation({
       query: (data) => ({
-        url: `$(ProductId)/${data.productId}/reviews`,
+        url: `${PRODUCT_URL}/${data.productId}/reviews`,
         method: "POST",
         body: data,
       }),
@@ -80,7 +85,7 @@ export const ProductSlice = apiSlice.injectEndpoints({
 
     getFilteredProducts: builder.query({
       query: ({ checked, radio }) => ({
-        url: `${PRODUCT_URL}/filtered`,
+        url: `${PRODUCT_URL}/filtered-products`,
         method: "POST",
         body: { checked, radio },
       }),
@@ -101,4 +106,4 @@ export const {
   useGetNewProductsQuery,
   useUploadProductImageMutation,
   useGetFilteredProductsQuery,
-} = ProductSlice;
+} = productSlice;

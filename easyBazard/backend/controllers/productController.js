@@ -24,6 +24,7 @@ const addProduct = asyncHandler(async (req, res) => {
     const product = new Product({ ...req.fields })
     await product.save()
     res.json(product)
+    console.log(product);
   } catch (error) {
     console.log(error);
     res.status(400).json(error.message)
@@ -48,7 +49,7 @@ const updateProduct = asyncHandler(async (req, res)=> {
             case !brand: 
             return res.json({ error: 'Marque requise' })
         }
-        const product = await Product.findByAndUpdate(
+        const product = await Product.findByIdAndUpdate(
             req.params.id,
             {...req.fields},
             {new: true}
@@ -56,7 +57,7 @@ const updateProduct = asyncHandler(async (req, res)=> {
         await product.save()
         res.json(product)
       } catch (error) {
-        log.error(error)
+        console.log(error)
         res.status(400).json(error.message)
       }
 })
