@@ -52,7 +52,7 @@ const Navigation = () => {
     >
       <div className="flex flex-col justify-center space-y-4">
         <Link
-          to="/"
+          to="/home"
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
           <AiOutlineHome className="mr-2 mt-[3rem]" size={26} />

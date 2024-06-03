@@ -14,6 +14,7 @@ import {
   FaStore,
 } from "react-icons/fa";
 import HeartIcon from "./HeartIcon";
+import ProductTabs from "./productTab";
 
 const Products = () => {
   const { id: productId } = useParams();
@@ -83,7 +84,7 @@ const Products = () => {
              w-full xl:w-[50rem] lg:w-[45rem]
               md-w-[30rem] sm:w-[20rem] mt-[2rem] "
               />
-              <HeartIcon product={product} />
+              {/* <HeartIcon product={product} /> */}
             </div>
             <div className="flex flex-col justify-between">
               <h2 className="text-2xl font-semibold">{product.name}</h2>
@@ -162,7 +163,7 @@ const Products = () => {
             </div>
           </div>
           <div className=" mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
-            <ProductsTabs
+            <ProductTabs
               loadingProductReview={loadingProductReview}
               userInfo={userInfo}
               submitHandler={submitHandler}
