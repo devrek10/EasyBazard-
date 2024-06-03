@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/": "https://easy-bazard.vercel.app/",
-      "/uploads/": "https://easy-bazard.vercel.app/",
+      "/api/": "https://easybazard-3.onrender.com",
+      "/uploads/": "https://easybazard-3.onrender.com"
     }
   }
 })

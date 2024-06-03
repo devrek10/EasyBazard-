@@ -40,9 +40,9 @@ const Register = () => {
         dispatch(setCredenials({ ...res }));
         navigate(redirect);
         toast.success("User successfully registered");
-      } catch (err) {
-        console.log(err);
-        toast.error(err.data.message);
+      } catch (error) {
+        console.log(error);
+        toast.error(error?.data?.message);
       }
     }
   };
