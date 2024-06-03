@@ -35,6 +35,12 @@ import AdminDashboard from "./pages/admin/adminDashboard.jsx";
 import AdminRoute from "./pages/admin/adminRoute.jsx";
 import AllProducts from "./pages/admin/allProducts.jsx";
 import ProductList from "./pages/admin/productList.jsx";
+import CategoryList from "./pages/admin/categoryList.jsx";
+import ProductUpdate from "./pages/admin/productUpdate.jsx";
+import UserList from "./pages/admin/userList.jsx";
+import Profile from "./pages/user/profile.jsx"
+import PrivateRoute from "./components/privateRoute.jsx";
+import ProductDetails from "./products/productDetail.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,12 +50,22 @@ const router = createBrowserRouter(
       <Route index={true} path="/home" element={<Home />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/shop" element={<Shop />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+
+
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/profile" element={<Profile />} />
+      </Route>
+
 
       <Route path="/admin" element={<AdminRoute />}>
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="allproductslist" element={<AllProducts />} />
         <Route path="productlist" element={<ProductList />} />
         <Route path="productlist/:pageNumber" element={<ProductList />} />
+        <Route path="categorylist" element={<CategoryList />} />
+        <Route path="product/update/:_id" element={<ProductUpdate />} />
+        <Route path="userlist" element={<UserList />} />
       </Route>
     </Route>
   )
